@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+Here is a professional and clear `README.md` for your **eat-n-split** React application:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# 🍽️ eat-n-split
 
-In the project directory, you can run:
+**eat-n-split** is a simple and interactive React application that allows users to manage shared expenses with friends by splitting bills and tracking balances. Whether you're dining out or sharing costs, this app helps you figure out who owes what.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Add new friends with custom avatars
+* Select a friend to split a bill with
+* Enter the total bill and who paid what
+* Automatically updates balances between you and your friends
+* Clear UI feedback on who owes who
+* Toggle friend selection and form visibility
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React (with Hooks)
+* Functional components
+* Local state management using `useState`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 💻 How It Works
 
-### `npm run eject`
+### 🧠 Application State
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app uses `useState` to manage:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* `friends`: A list of friends and their balances
+* `showAddFriend`: Toggles the "Add Friend" form
+* `selectedFriend`: Tracks which friend is currently selected
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔗 Component Overview
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### `App`
 
-## Learn More
+The root component that controls layout and state logic. It handles:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Adding friends
+* Selecting a friend
+* Toggling forms
+* Splitting a bill
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `FriendsList`
 
-### Code Splitting
+Displays a list of all current friends using the `Friend` component. Handles selection logic.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### `Friend`
 
-### Analyzing the Bundle Size
+Shows an individual friend with their:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Avatar
+* Name
+* Balance status (who owes whom)
+* Button to select or deselect the friend
 
-### Making a Progressive Web App
+#### `FormSplitBill`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Allows the user to:
 
-### Advanced Configuration
+* Enter the total bill
+* Specify how much they paid
+* Automatically calculates how much the friend paid
+* Choose who paid the bill
+* Submits the split and updates balances
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### `FormAddFriend`
 
-### Deployment
+Form to add a new friend with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Name
+* Avatar image URL
+* Auto-generated unique ID and starting balance of `$0`
 
-### `npm run build` fails to minify
+#### `Button`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Reusable styled button component.
+
+---
+
+## 💰 Balance Logic
+
+* A **positive balance** means the friend **owes you**.
+* A **negative balance** means **you owe the friend**.
+* A **zero balance** means you're **even**.
+
+When a bill is split:
+
+* If **you paid**, the friend’s balance increases.
+* If **they paid**, the friend’s balance decreases.
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/eat-n-split.git
+cd eat-n-split
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm start
+```
+
+Visit `http://localhost:3000` to use the app.
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── App.js              # Main app component
+├── index.js            # Entry point
+├── components/         # (You can move reusable components here)
+└── styles.css          # (Optional) Styling
+```
+
+---
+
+## 🔮 Future Improvements
+
+* Persist data with local storage or a backend
+* Allow editing/removing friends
+* Add support for group bill splitting
+* Mobile-friendly responsive design
+* Currency formatting and localization
+
+---
+
+## 🧹 Known Limitations
+
+* Data is not saved between sessions
+* Limited to one-on-one bill splits
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
