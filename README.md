@@ -1,7 +1,3 @@
-Here is a professional and clear `README.md` for your **eat-n-split** React application:
-
----
-
 # 🍽️ eat-n-split
 
 **eat-n-split** is a simple and interactive React application that allows users to manage shared expenses with friends by splitting bills and tracking balances. Whether you're dining out or sharing costs, this app helps you figure out who owes what.
